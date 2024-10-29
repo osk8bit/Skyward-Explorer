@@ -605,7 +605,7 @@ MonoBehaviour:
   _groundCheck: {fileID: 1976014143}
   _attackRange: {fileID: 118918801}
   IsGrounded: 0
-  _rollForce: 65
+  _rollForce: 80
   _shield: {fileID: 1519432180}
   _ceilingCheck: {fileID: 363765725}
   _imune: 0

@@ -9,6 +9,7 @@ namespace Assets.Scripts.Components.Creature.Hero
         [SerializeField] private GameObject _shield;
         [SerializeField] private ColliderCheck _ceilingCheck;
 
+
         public bool _imune = false;
         private bool _isAttacked = false;
         public bool _isRolling;
@@ -21,6 +22,7 @@ namespace Assets.Scripts.Components.Creature.Hero
         private static readonly int IsRolling = Animator.StringToHash("is_rolling");
         private static readonly int IsBlocked = Animator.StringToHash("is_blocked");
         private static readonly int IsIdleBlock = Animator.StringToHash("idleBlock");
+        protected static readonly int IsCeilingKey = Animator.StringToHash("is-ceiling");
 
         protected override void Awake()
         {
@@ -32,18 +34,21 @@ namespace Assets.Scripts.Components.Creature.Hero
             base.Update();
             if (_isRolling)
             {
-                Rigidbody.velocity = new Vector2(0, 0);
-                _collider.isTrigger = true;
-                if(transform.localScale.x < 0)
+                Rigidbody.velocity = Vector2.zero;
+                if (!IsCeiling)
+                    _collider.isTrigger = true;
+
+                if (transform.localScale.x < 0)
                 {
                     Rigidbody.AddForce(Vector2.left * _rollForce);
                 }
-                else if(transform.localScale.x > 0)
+                else if (transform.localScale.x > 0)
                 {
                     Rigidbody.AddForce(Vector2.right * _rollForce);
                 }
 
             }
+
 
             IsCeiling = _ceilingCheck.IsTouchingLayer;
 
@@ -52,7 +57,7 @@ namespace Assets.Scripts.Components.Creature.Hero
 
         private void FixedUpdate()
         {
-            if(!_isRolling)
+            if (!_isRolling)
             {
                 var xVelocity = CalculateXVelocity();
                 var yVelocity = CalculateYVelocity();
@@ -62,14 +67,16 @@ namespace Assets.Scripts.Components.Creature.Hero
             Animator.SetFloat(VerticalVelocity, Rigidbody.velocity.y);
             Animator.SetBool(IsRunning, Direction.x != 0);
 
+
+
             UpdateSpriteDirection(Direction);
         }
 
         protected override float CalculateSpeed()
         {
-            if(!_isAttacked)
+            if (!_isAttacked)
                 return _speed;
-            
+
             return 0;
 
         }
@@ -100,14 +107,29 @@ namespace Assets.Scripts.Components.Creature.Hero
         {
             _isRolling = false;
             _collider.isTrigger = false;
+            Animator.SetBool(IsCeilingKey, IsCeiling);
+
+            if (!_isRolling && IsCeiling)
+            {
+                RollWhileCeiling();
+            }
+
         }
+        public void RollWhileCeiling()
+        {
+            if (IsCeiling)
+            {
+                _isRolling = true;
+            }
+        }
+
         public void StopBlock()
         {
             _shield.SetActive(false);
         }
         public void Roll()
         {
-            if(IsGrounded)
+            if (IsGrounded)
             {
                 _isRolling = true;
                 Animator.SetTrigger(IsRolling);
@@ -116,7 +138,7 @@ namespace Assets.Scripts.Components.Creature.Hero
 
         public void Block()
         {
-            if(!_isRolling)
+            if (!_isRolling)
             {
                 Animator.SetTrigger(IsBlocked);
                 _shield.SetActive(true);
@@ -133,7 +155,7 @@ namespace Assets.Scripts.Components.Creature.Hero
 
         public override void TakeDamage()
         {
-            if(!_isRolling)
+            if (!_isRolling)
             {
                 _isAttacked = false;
                 _isJumping = false;
