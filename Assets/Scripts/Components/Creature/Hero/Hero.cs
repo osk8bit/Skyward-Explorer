@@ -32,25 +32,23 @@ namespace Assets.Scripts.Components.Creature.Hero
         protected override void Update()
         {
             base.Update();
+
+            IsCeiling = _ceilingCheck.IsTouchingLayer;
+
             if (_isRolling)
             {
                 Rigidbody.velocity = Vector2.zero;
-                if (!IsCeiling)
-                    _collider.isTrigger = true;
 
                 if (transform.localScale.x < 0)
                 {
-                    Rigidbody.AddForce(Vector2.left * _rollForce);
+                    Rigidbody.AddForce(Vector2.left * _rollForce );
                 }
                 else if (transform.localScale.x > 0)
                 {
-                    Rigidbody.AddForce(Vector2.right * _rollForce);
+                    Rigidbody.AddForce(Vector2.right * _rollForce );
                 }
 
             }
-
-
-            IsCeiling = _ceilingCheck.IsTouchingLayer;
 
             _timeSinceAttack += Time.deltaTime;
         }
@@ -63,10 +61,11 @@ namespace Assets.Scripts.Components.Creature.Hero
                 var yVelocity = CalculateYVelocity();
                 Rigidbody.velocity = new Vector2(xVelocity, yVelocity);
             }
+
             Animator.SetBool(IsGroundKey, IsGrounded);
             Animator.SetFloat(VerticalVelocity, Rigidbody.velocity.y);
             Animator.SetBool(IsRunning, Direction.x != 0);
-
+            Animator.SetBool(IsCeilingKey, IsCeiling);
 
 
             UpdateSpriteDirection(Direction);
@@ -107,20 +106,11 @@ namespace Assets.Scripts.Components.Creature.Hero
         {
             _isRolling = false;
             _collider.isTrigger = false;
-            Animator.SetBool(IsCeilingKey, IsCeiling);
-
-            if (!_isRolling && IsCeiling)
-            {
-                RollWhileCeiling();
-            }
 
         }
         public void RollWhileCeiling()
         {
-            if (IsCeiling)
-            {
-                _isRolling = true;
-            }
+            _isRolling = true;
         }
 
         public void StopBlock()
@@ -131,6 +121,7 @@ namespace Assets.Scripts.Components.Creature.Hero
         {
             if (IsGrounded)
             {
+                _collider.isTrigger = true;
                 _isRolling = true;
                 Animator.SetTrigger(IsRolling);
             }
