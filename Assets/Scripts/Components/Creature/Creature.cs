@@ -30,7 +30,7 @@ namespace Assets.Scripts.Components.Creature
         protected virtual void Awake()
         {
             Rigidbody = GetComponent<Rigidbody2D>();
-            Animator = GetComponent<Animator>();
+           Animator = GetComponent<Animator>();
         }
 
         protected virtual void Update()

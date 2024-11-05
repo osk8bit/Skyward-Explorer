@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Swordsman
   - Shield
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -20,9 +21,9 @@ TagManager:
   - Shield
   - DamageItem
   - Wall
-  - 
-  - 
-  - 
+  - DeadEnemy
+  - Interactables
+  - Checker
   - 
   - 
   - 
@@ -49,4 +50,7 @@ TagManager:
     locked: 0
   - name: Creatures
     uniqueID: 524331485
+    locked: 0
+  - name: Interactables
+    uniqueID: 2154802777
     locked: 0

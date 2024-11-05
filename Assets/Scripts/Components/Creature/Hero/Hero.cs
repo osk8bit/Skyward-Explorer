@@ -8,6 +8,7 @@ namespace Assets.Scripts.Components.Creature.Hero
         [SerializeField] private int _rollForce;
         [SerializeField] private GameObject _shield;
         [SerializeField] private ColliderCheck _ceilingCheck;
+        [SerializeField] private CheckCircleOverlap _interactionCheck;
 
 
         public bool _imune = false;
@@ -16,6 +17,7 @@ namespace Assets.Scripts.Components.Creature.Hero
         private float _timeSinceAttack = 0.0f;
         private int _currentAttack = 0;
         public bool IsCeiling;
+        private int _currentCoin;
 
         private Collider2D _collider;
 
@@ -29,33 +31,36 @@ namespace Assets.Scripts.Components.Creature.Hero
             base.Awake();
             _collider = GetComponent<Collider2D>();
         }
+
+        private void Start()
+        {
+            _currentCoin = 0;
+        }
         protected override void Update()
         {
             base.Update();
 
             IsCeiling = _ceilingCheck.IsTouchingLayer;
+            _timeSinceAttack += Time.deltaTime;
+        }
 
+        private void FixedUpdate()
+        {
             if (_isRolling)
             {
                 Rigidbody.velocity = Vector2.zero;
 
                 if (transform.localScale.x < 0)
                 {
-                    Rigidbody.AddForce(Vector2.left * _rollForce );
+                    Rigidbody.AddForce(Vector2.left * _rollForce);
                 }
                 else if (transform.localScale.x > 0)
                 {
-                    Rigidbody.AddForce(Vector2.right * _rollForce );
+                    Rigidbody.AddForce(Vector2.right * _rollForce);
                 }
 
             }
-
-            _timeSinceAttack += Time.deltaTime;
-        }
-
-        private void FixedUpdate()
-        {
-            if (!_isRolling)
+            else
             {
                 var xVelocity = CalculateXVelocity();
                 var yVelocity = CalculateYVelocity();
@@ -153,6 +158,17 @@ namespace Assets.Scripts.Components.Creature.Hero
                 Animator.SetTrigger(Hit);
                 Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, _damageVelocity);
             }
+        }
+
+        public void Interact()
+        {
+            _interactionCheck.Check();
+        }
+
+        public void AddCoin()
+        {
+            _currentCoin += 1;
+            Debug.Log($"Монетка собрана, в кошельке {_currentCoin} монет");
         }
 
     }

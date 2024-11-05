@@ -61,16 +61,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Components\Creature\Hero\Hero.cs" />
+    <Compile Include="Assets\Scripts\Animations\GetTrigger.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Creature.cs" />
+    <Compile Include="Assets\Scripts\Components\Interactions\InteractableComponent.cs" />
     <Compile Include="Assets\Hero Knight - Pixel Art\Demo\DestroyEvent_HeroKnight.cs" />
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Bandit.cs" />
     <Compile Include="Assets\Hero Knight - Pixel Art\Demo\Sensor_HeroKnight.cs" />
+    <Compile Include="Assets\Scripts\Animations\SpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Mobs\CanReflectAttack.cs" />
+    <Compile Include="Assets\Scripts\Components\Interactions\DoInteractComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\Movement\MovementPointComponent.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Mobs\MobAi.cs" />
     <Compile Include="Assets\Scripts\Components\ColliderBased\LayerCheck.cs" />
     <Compile Include="Assets\Scripts\Components\Health\ModifyHealthComponent.cs" />
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
     <Compile Include="Assets\Scripts\Components\Health\HealthComponent.cs" />
+    <Compile Include="Assets\Scripts\GoBased\DestroyObjectComponent.cs" />
     <Compile Include="Assets\Scripts\Components\ColliderBased\ColliderCheck.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Mobs\Patrolling\PatrolComponent.cs" />
     <Compile Include="Assets\Scripts\Utils\HandlesUtils.cs" />
@@ -80,11 +86,13 @@
     <Compile Include="Assets\Scripts\Components\Creature\Mobs\Patrolling\PointPatrol.cs" />
     <Compile Include="Assets\Input\HeroInputAction.cs" />
     <Compile Include="Assets\Scripts\Utils\GameObjectExtensions.cs" />
+    <Compile Include="Assets\Scripts\Components\Movement\VerticalLevitationComponent.cs" />
     <Compile Include="Assets\Scripts\Components\ColliderBased\EnterTriggerComponent.cs" />
     <Compile Include="Assets\Scripts\Components\ColliderBased\CheckCircleOverlap.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Hero\HeroInputReader.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\karsiori\Sprites\Pixel Art Key Pack - Animated\Key Pack - Read Me.txt" />
     <None Include="Assets\Hero Knight - Pixel Art\ColorSwap\Sprites-ColorSwap.shader" />
   </ItemGroup>
   <ItemGroup>
