@@ -8,6 +8,9 @@ TagManager:
   - Swordsman
   - Shield
   - Interactable
+  - PersonilezedDialog
+  - SimpleDialog
+  - Spirit
   layers:
   - Default
   - TransparentFX

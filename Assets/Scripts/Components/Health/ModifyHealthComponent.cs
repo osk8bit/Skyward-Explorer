@@ -5,7 +5,7 @@ namespace Assets.Scripts.Components.Health
 {
     public class ModifyHealthComponent : MonoBehaviour
     {
-        [SerializeField] private float _hpDelta;
+        [SerializeField] private int _hpDelta;
         [SerializeField] private Hero _hero;
 
         public void ApplyHealth(GameObject target)

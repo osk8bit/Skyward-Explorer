@@ -9,13 +9,28 @@ namespace Assets.Scripts.Components.Movement
         [SerializeField] private float _speed;
         [SerializeField] private float _waitTime = 3f;
         [SerializeField] private bool _isMoving = false;
+        [SerializeField] private bool _isSpirit;
 
         private int i = 1;
 
         private void Update()
         {
             if (_isMoving)
+            {
                 transform.position = Vector3.MoveTowards(transform.position, _points[i].position, _speed * Time.deltaTime);
+            }
+
+            if (_isSpirit)
+            {
+                float direction = _points[i].position.x - transform.position.x;
+                if ((direction > 0 && transform.localScale.x < 0) || (direction < 0 && transform.localScale.x > 0))
+                {
+                    Vector3 scale = transform.localScale;
+                    scale.x *= -1; 
+                    transform.localScale = scale;
+                }
+            }
+
 
             if (transform.position == _points[i].position)
             {
@@ -38,7 +53,7 @@ namespace Assets.Scripts.Components.Movement
 
         void OnCollisionExit2D(Collision2D collision)
         {
-                collision.gameObject.transform.parent = null;
+            collision.gameObject.transform.parent = null;
         }
 
         private IEnumerator Wait()

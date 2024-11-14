@@ -1,9 +1,13 @@
 ﻿using Assets.Scripts.Components.ColliderBased;
+using Assets.Scripts.Components.Health;
+using Assets.Scripts.Components.Model;
+using Assets.Scripts.Components.Model.Data;
 using UnityEngine;
+using static Assets.Scripts.Model.InventoryData;
 
 namespace Assets.Scripts.Components.Creature.Hero
 {
-    public class Hero : Creature
+    public class Hero : Creature, ICanAddInInventory
     {
         [SerializeField] private int _rollForce;
         [SerializeField] private GameObject _shield;
@@ -17,9 +21,12 @@ namespace Assets.Scripts.Components.Creature.Hero
         private float _timeSinceAttack = 0.0f;
         private int _currentAttack = 0;
         public bool IsCeiling;
-        private int _currentCoin;
 
         private Collider2D _collider;
+        private HealthComponent _health;
+        private GameSession _session;
+
+        //private int CoinsCount => _session.Data.Inventory.Count("Coin");
 
         private static readonly int IsRolling = Animator.StringToHash("is_rolling");
         private static readonly int IsBlocked = Animator.StringToHash("is_blocked");
@@ -34,7 +41,9 @@ namespace Assets.Scripts.Components.Creature.Hero
 
         private void Start()
         {
-            _currentCoin = 0;
+            _session = GameSession.Instance;
+            _health = GetComponent<HealthComponent>();
+            _health.SetHealth(_session.Data.Hp.Value);
         }
         protected override void Update()
         {
@@ -103,6 +112,16 @@ namespace Assets.Scripts.Components.Creature.Hero
             }
         }
 
+        public void OnHealthChanged(int currentHealth)
+        {
+            _session.Data.Hp.Value = currentHealth;
+        }
+
+        public void AddInInventory(string id, int value)
+        {
+            _session.Data.Inventory.Add(id, value);
+        }
+
         public void StopAttack()
         {
             _isAttacked = false;
@@ -164,12 +183,5 @@ namespace Assets.Scripts.Components.Creature.Hero
         {
             _interactionCheck.Check();
         }
-
-        public void AddCoin()
-        {
-            _currentCoin += 1;
-            Debug.Log($"Монетка собрана, в кошельке {_currentCoin} монет");
-        }
-
     }
 }
