@@ -2,8 +2,8 @@
 using Assets.Scripts.Components.Health;
 using Assets.Scripts.Components.Model;
 using Assets.Scripts.Components.Model.Data;
+using System.Collections;
 using UnityEngine;
-using static Assets.Scripts.Model.InventoryData;
 
 namespace Assets.Scripts.Components.Creature.Hero
 {
@@ -13,15 +13,22 @@ namespace Assets.Scripts.Components.Creature.Hero
         [SerializeField] private GameObject _shield;
         [SerializeField] private ColliderCheck _ceilingCheck;
         [SerializeField] private CheckCircleOverlap _interactionCheck;
+        [SerializeField] private float _blockDuration = 2.0f;  // Длительность блока
+        [SerializeField] private float _blockCooldown = 5.0f;  // Время перезарядки блока
 
-
+        
         public bool _imune = false;
         private bool _isAttacked = false;
         public bool _isRolling;
         private float _timeSinceAttack = 0.0f;
         private int _currentAttack = 0;
         public bool IsCeiling;
-
+        private bool _canBlock = true;
+        private bool _isHoldingBlock; // Удерживается ли кнопка блока
+        private bool _isBlockActive;  // Активен ли блок
+        private float _originalSpeed;
+        private bool _canAttack = true;
+        
         private Collider2D _collider;
         private HealthComponent _health;
         private GameSession _session;
@@ -37,6 +44,7 @@ namespace Assets.Scripts.Components.Creature.Hero
         {
             base.Awake();
             _collider = GetComponent<Collider2D>();
+            _originalSpeed = _speed;
         }
 
         private void Start()
@@ -44,6 +52,7 @@ namespace Assets.Scripts.Components.Creature.Hero
             _session = GameSession.Instance;
             _health = GetComponent<HealthComponent>();
             _health.SetHealth(_session.Data.Hp.Value);
+
         }
         protected override void Update()
         {
@@ -55,7 +64,7 @@ namespace Assets.Scripts.Components.Creature.Hero
 
         private void FixedUpdate()
         {
-            if (_isRolling)
+            if (_isRolling )
             {
                 Rigidbody.velocity = Vector2.zero;
 
@@ -94,9 +103,36 @@ namespace Assets.Scripts.Components.Creature.Hero
 
         }
 
+        protected override float CalculateYVelocity()
+        {
+
+            var yVelocity = Rigidbody.velocity.y;
+            var isJumpPressing = Direction.y > 0;
+
+            if (IsGrounded)
+            {
+                _isJumping = false;
+            }
+
+            if (isJumpPressing && !_isBlockActive)
+            {
+                _isJumping = true;
+
+                var isFalling = Rigidbody.velocity.y <= 0.001f;
+                yVelocity = isFalling ? CalculateJumpVelocity(yVelocity) : yVelocity;
+            }
+            else if (Rigidbody.velocity.y > 0 && _isJumping)
+            {
+                yVelocity *= 0.5f;
+            }
+
+            return yVelocity;
+
+        }
+
         public override void Attack()
         {
-            if (_timeSinceAttack > 0.25f && !_isRolling)
+            if (_timeSinceAttack > 0.25f && !_isRolling && _canAttack)
             {
                 _isAttacked = true;
                 _currentAttack++;
@@ -137,13 +173,10 @@ namespace Assets.Scripts.Components.Creature.Hero
             _isRolling = true;
         }
 
-        public void StopBlock()
-        {
-            _shield.SetActive(false);
-        }
+        
         public void Roll()
         {
-            if (IsGrounded)
+            if (IsGrounded && !_isBlockActive)
             {
                 _collider.isTrigger = true;
                 _isRolling = true;
@@ -153,19 +186,78 @@ namespace Assets.Scripts.Components.Creature.Hero
 
         public void Block()
         {
-            if (!_isRolling)
+            if (_canBlock && !_isRolling)
             {
+                _canAttack = false;
                 Animator.SetTrigger(IsBlocked);
                 _shield.SetActive(true);
-                Animator.SetBool(IsIdleBlock, true);
                 _imune = true;
+                _isHoldingBlock = true;
+                _isBlockActive = true;
+
+                StartCoroutine(BlockCooldowRoutine());
             }
         }
 
+        public void PressureCheck()
+        {
+            // Проверяем, удерживается ли кнопка блока
+            if (_isHoldingBlock)
+            {
+                IdleBlock(); // Переходим в состояние IdleBlock
+            }
+            else
+            {
+                StopBlock(); // Заканчиваем блок
+            }
+        }
+
+
+        private IEnumerator BlockDurationRoutine()
+        {
+            _isAttacked = false;
+            // Держим блок в течение _blockDuration
+            yield return new WaitForSeconds(_blockDuration);
+            StopBlock();
+            // Деактивируем блок
+        }
+
+        private IEnumerator BlockCooldowRoutine()
+        {
+            _canBlock = false;
+            // Ждем окончания перезарядки
+            yield return new WaitForSeconds(_blockCooldown);
+            _canBlock = true;  // Позволяем снова использовать блок
+        }
+
+
         public void IdleBlock()
         {
+            if (_isBlockActive)
+            {
+                _canAttack = false;
+                _shield.SetActive(false);
+                Animator.SetBool(IsIdleBlock, true);
+                _speed = 0;  // Отключаем движение
+                StartCoroutine(BlockDurationRoutine());
+                StartCoroutine(BlockCooldowRoutine());
+            }
+                
+        }
+
+        public void StopBlock()
+        {
+            _shield.SetActive(false);
             _imune = false;
             Animator.SetBool(IsIdleBlock, false);
+            _speed = _originalSpeed;  // Возвращаем изначальную скорость
+            _isBlockActive = false;
+            _canAttack = true;
+        }
+
+        public void StopHoldingBlock()
+        {
+            _isHoldingBlock = false;
         }
 
         public override void TakeDamage()

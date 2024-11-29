@@ -11,6 +11,7 @@ TagManager:
   - PersonilezedDialog
   - SimpleDialog
   - Spirit
+  - DialogueUI
   layers:
   - Default
   - TransparentFX

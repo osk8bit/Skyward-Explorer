@@ -64,12 +64,14 @@
     <Compile Include="Assets\Scripts\Components\Creature\Hero\Hero.cs" />
     <Compile Include="Assets\Scripts\Animations\GetTrigger.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Creature.cs" />
+    <Compile Include="Assets\Scripts\Components\LevelManegment\ReloadLevelComponent.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Data\Properties\IntProperty.cs" />
     <Compile Include="Assets\Scripts\Dialogs\ShowOptionsComponent.cs" />
     <Compile Include="Assets\Scripts\Dialogs\DialogDef.cs" />
     <Compile Include="Assets\Scripts\Components\Interactions\InteractableComponent.cs" />
     <Compile Include="Assets\Hero Knight - Pixel Art\Demo\DestroyEvent_HeroKnight.cs" />
     <Compile Include="Assets\Scripts\Utils\Editors\SerializedPropertyExtensions.cs" />
+    <Compile Include="Assets\Scripts\Components\TimerComponent.cs" />
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Bandit.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Definition\IHaveId.cs" />
     <Compile Include="Assets\Hero Knight - Pixel Art\Demo\Sensor_HeroKnight.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="Assets\Scripts\Components\Model\Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Dialogs\OptionDialogController.cs" />
     <Compile Include="Assets\Scripts\Components\Interactions\DoInteractComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\LevelManegment\ExitLevelComponent.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\DataGroup.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\MovementPointComponent.cs" />
     <Compile Include="Assets\Scripts\UI\Hp\HealthBar.cs" />
@@ -95,7 +98,9 @@
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
     <Compile Include="Assets\Scripts\Components\Health\HealthComponent.cs" />
     <Compile Include="Assets\Scripts\GoBased\DestroyObjectComponent.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\ProgressBarWidget.cs" />
     <Compile Include="Assets\Scripts\Components\ColliderBased\ColliderCheck.cs" />
+    <Compile Include="Assets\Scripts\Components\LevelManegment\SetFollowComponent.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Mobs\Patrolling\PatrolComponent.cs" />
     <Compile Include="Assets\Scripts\Utils\AudioUtills.cs" />
     <Compile Include="Assets\Scripts\Model\InventoryData.cs" />
@@ -108,12 +113,16 @@
     <Compile Include="Assets\Hero Knight - Pixel Art\Demo\HeroKnight.cs" />
     <Compile Include="Assets\Scripts\Components\Collectables\InventoryAddComponent.cs" />
     <Compile Include="Assets\Scripts\UI\HudController.cs" />
+    <Compile Include="Assets\Scripts\UI\LevelsLoader\LevelLoader.cs" />
     <Compile Include="Assets\Scripts\Components\Camera\ChangeTrackedObjectOffset.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\LifeBar\LifeBarWidget.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Mobs\Patrolling\PointPatrol.cs" />
     <Compile Include="Assets\Scripts\Dialogs\ShowDialogComponent.cs" />
     <Compile Include="Assets\Input\HeroInputAction.cs" />
+    <Compile Include="Assets\Scripts\UI\UIPointerChecker.cs" />
     <Compile Include="Assets\Scripts\Utils\GameObjectExtensions.cs" />
     <Compile Include="Assets\Scripts\Dialogs\PersonilezedDialogBoxController.cs" />
+    <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Data\ICanAddInInventory.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\VerticalLevitationComponent.cs" />
     <Compile Include="Assets\Scripts\Components\ColliderBased\EnterTriggerComponent.cs" />
@@ -122,6 +131,7 @@
     <Compile Include="Assets\Scripts\Dialogs\DialogData.cs" />
     <Compile Include="Assets\Scripts\Components\ColliderBased\CheckCircleOverlap.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Mobs\FlyingEyeAi.cs" />
+    <Compile Include="Assets\Scripts\Components\Movement\Trampoline.cs" />
     <Compile Include="Assets\Scripts\Dialogs\DialogContent.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Hero\HeroInputReader.cs" />
   </ItemGroup>

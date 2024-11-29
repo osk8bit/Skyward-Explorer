@@ -13,6 +13,7 @@ namespace Assets.Scripts.Components.Camera
         private void Start ()
         {
             _framingTransposer = _camera.GetComponentInChildren<CinemachineFramingTransposer>();
+            _framingTransposer.m_TrackedObjectOffset.y = _value;
         }
 
         public void ChangeBody()

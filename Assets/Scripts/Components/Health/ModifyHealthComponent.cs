@@ -11,7 +11,7 @@ namespace Assets.Scripts.Components.Health
         public void ApplyHealth(GameObject target)
         {
             var healthComponent = target.GetComponent<HealthComponent>();
-            if (healthComponent != null && !_hero._isRolling && !_hero._imune)
+            if (healthComponent != null && !_hero._imune)
             {
                 healthComponent.ModifyHealth(_hpDelta);
             }

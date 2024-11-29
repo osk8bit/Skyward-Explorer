@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.UI;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Assets.Scripts.Components.Creature.Hero
@@ -6,6 +8,7 @@ namespace Assets.Scripts.Components.Creature.Hero
     public class HeroInputReader : MonoBehaviour
     {
         [SerializeField] private Hero _hero;
+        [SerializeField] private UIPointerChecker uiPointerChecker;
         public void OnMovement(InputAction.CallbackContext context)
         {
             var direction = context.ReadValue<Vector2>();
@@ -14,9 +17,14 @@ namespace Assets.Scripts.Components.Creature.Hero
 
         public void OnAttack(InputAction.CallbackContext context)
         {
-            if(context.canceled)
+            if (context.canceled)
+            {
+                // Проверяем, наведен ли курсор на UI через UIPointerChecker
+                if (uiPointerChecker != null && uiPointerChecker.IsPointerOverUI())
+                    return;
+
                 _hero.Attack();
-            
+            }
         }
 
         public void OnRoll(InputAction.CallbackContext context)
@@ -29,8 +37,9 @@ namespace Assets.Scripts.Components.Creature.Hero
         {
             if (context.started)
                 _hero.Block();
+
             if(context.canceled)
-                _hero.IdleBlock();
+                _hero.StopHoldingBlock();
 
         }
 
