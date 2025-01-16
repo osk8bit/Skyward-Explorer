@@ -12,6 +12,8 @@ TagManager:
   - SimpleDialog
   - Spirit
   - DialogueUI
+  - MainUiCanvas
+  - SfxAudioSource
   layers:
   - Default
   - TransparentFX
@@ -28,7 +30,7 @@ TagManager:
   - DeadEnemy
   - Interactables
   - Checker
-  - 
+  - NoGoZone
   - 
   - 
   - 

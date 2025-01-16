@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b3c2e3ceee99b45946c178919c7d3c, type: 3}
+  m_Name: en
+  m_EditorClassIdentifier: 
+  _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vRrSTGCAE8xa64-vBak5QxJSaGBYnajuJ6yvJFnJQL25HHcDgQGVvhfD6Mwxjfd0tFdz5E71-9rlpkZ/pub?gid=0&single=true&output=tsv
+  _localeItems:
+  - Key: menu_title
+    Value: "Main menu\r"
+  - Key: button_start
+    Value: "Start\r"
+  - Key: button_option
+    Value: "Options\r"
+  - Key: button_exit
+    Value: "Exit\r"
+  - Key: button_ok
+    Value: "Ok\r"
+  - Key: button_back
+    Value: "Back\r"
+  - Key: options_title
+    Value: "Options\r"
+  - Key: music_title
+    Value: "Music\r"
+  - Key: menu_language
+    Value: "Language\r"
+  - Key: button_language
+    Value: "Language\r"
+  - Key: hero_dialog_1
+    Value: "Wake up!\r"
+  - Key: hero_dialog_2
+    Value: "Who are you?\r"
+  - Key: hero_dialog_3
+    Value: "I'm talking to you!\r"
+  - Key: cat_dialog_option
+    Value: "It seems the cat is not in the mood for dialogue. Placate him with a
+      fish?\r"
+  - Key: option_yes
+    Value: "Yes\r"
+  - Key: option_no
+    Value: "No\r"
+  - Key: no_fish_inventory
+    Value: "There are no fish in inventory! We need to find her urgently!\r"
+  - Key: cat_dialog_1
+    Value: "This was where we had to start! I am the spirit of the forest, helping
+      travelers find their way\r"
+  - Key: hero_dialog_4
+    Value: "Will you help me achieve my goal?\r"
+  - Key: cat_dialog_2
+    Value: "Don't be impudent, I'll help you open the door, and then look for other
+      spirits yourself\r"
+  - Key: cat_dialog_3
+    Value: "They will help you. But don't forget, you have to pay for any help.\r"
+  - Key: find_key
+    Value: "Find the key and the chest will open!\r"
+  - Key: chest_open
+    Value: "The chest is open!\r"
+  - Key: put_inventory
+    Value: "put in inventory\r"
+  - Key: door_open
+    Value: "The door is open! Should I go further?\r"
+  - Key: silence
+    Value: "...\r"
+  - Key: menu_pause
+    Value: "Pause\r"
+  - Key: button_restart
+    Value: "Restart\r"
+  - Key: tree_dialog_1
+    Value: "Wait! Don't run away, I have business with you\r"
+  - Key: hero_tree_dialog_1
+    Value: "I don't see anyone, where are you?\r"
+  - Key: tree_dialog_2
+    Value: "I am a dry tree, come to me\r"
+  - Key: tree_dialog_3
+    Value: "Thank you. In general, as you already understood, I am a tree, my roots
+      are tangled, so all my foliage has fallen off, help me untangle them, I will
+      not be in debt\r"
+  - Key: tree_dialog_4
+    Value: "Phew, what a shame, I\u2019m finally dressed. Thank you for your help,
+      since I am an unusual tree, I have an unusual gift for you. I give you a book
+      that will help you in the future.\r"
+  - Key: tree_dialog_5
+    Value: "With its help you can become stronger, but don\u2019t forget, free cheese
+      is only in a mousetrap, this book loves silver very much, it won\u2019t help
+      for free. Good luck!\r"
+  - Key: win_text
+    Value: "You did it!\r"
+  - Key: win_text2
+    Value: "Press to continue\r"
+  - Key: stat-book
+    Value: "The ability to upgrade your character is now open. Click the red button
+      in the upper right corner to open the ability book\r"
+  - Key: button_upgrade
+    Value: "Upgrade\r"
+  - Key: price_label
+    Value: "Price\r"
+  - Key: Speed
+    Value: "Speed\r"
+  - Key: Damage
+    Value: "Damage\r"
+  - Key: Critical Damage
+    Value: Critical damage

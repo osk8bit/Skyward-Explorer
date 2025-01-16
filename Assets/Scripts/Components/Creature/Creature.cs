@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Components.ColliderBased;
+﻿using Assets.Scripts.Components.Audio;
+using Assets.Scripts.Components.ColliderBased;
 using UnityEngine;
 
 namespace Assets.Scripts.Components.Creature
@@ -13,11 +14,12 @@ namespace Assets.Scripts.Components.Creature
 
         [Header("Checkers")]
         [SerializeField] private ColliderCheck _groundCheck;
-        [SerializeField] private CheckCircleOverlap _attackRange;
+        [SerializeField] protected CheckCircleOverlap _attackRange;
 
         protected Rigidbody2D Rigidbody;
         protected Vector2 Direction;
         protected Animator Animator;
+        protected PlaySoundsComponent Sounds;
         public bool IsGrounded;
         protected bool _isJumping;
 
@@ -30,7 +32,8 @@ namespace Assets.Scripts.Components.Creature
         protected virtual void Awake()
         {
             Rigidbody = GetComponent<Rigidbody2D>();
-           Animator = GetComponent<Animator>();
+            Animator = GetComponent<Animator>();
+            Sounds = GetComponent<PlaySoundsComponent>();
         }
 
         protected virtual void Update()
@@ -88,12 +91,14 @@ namespace Assets.Scripts.Components.Creature
 
             return yVelocity;
         }
+
         protected virtual float CalculateJumpVelocity(float yVelocity)
         {
 
             if (IsGrounded)
             {
                 yVelocity = _jumpSpeed;
+                Sounds.Play("Jump");
             }
             return yVelocity;
         }
@@ -114,6 +119,7 @@ namespace Assets.Scripts.Components.Creature
 
         public virtual void TakeDamage()
         {
+            Sounds.Play("Hit");
             _isJumping = false;
             Animator.SetTrigger(Hit);
             Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, _damageVelocity);
@@ -125,6 +131,7 @@ namespace Assets.Scripts.Components.Creature
         public void OnDoAttack()
         {
             _attackRange.Check();
+            Sounds.Play("Attack");
         }
     }
 }

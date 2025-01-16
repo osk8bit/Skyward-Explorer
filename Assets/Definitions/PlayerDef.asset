@@ -14,3 +14,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventorySize: 4
   _maxHealth: 10
+  _stats:
+  - _name: Speed
+    _id: 0
+    _icon: {fileID: 21300000, guid: 55567d7e3ae55064ea13d66293f454f4, type: 3}
+    _levels:
+    - _value: 5
+      _price:
+        _itemId: coin
+        _count: 0
+    - _value: 6
+      _price:
+        _itemId: coin
+        _count: 20
+    - _value: 7
+      _price:
+        _itemId: coin
+        _count: 50
+  - _name: Damage
+    _id: 1
+    _icon: {fileID: 21300000, guid: 5436ae86aec8f4446926bc19bf821f91, type: 3}
+    _levels:
+    - _value: 2
+      _price:
+        _itemId: coin
+        _count: 0
+    - _value: 3
+      _price:
+        _itemId: coin
+        _count: 5
+    - _value: 4
+      _price:
+        _itemId: coin
+        _count: 10
+    - _value: 4
+      _price:
+        _itemId: coin
+        _count: 15
+    - _value: 5
+      _price:
+        _itemId: coin
+        _count: 30
+  - _name: Critical Damage
+    _id: 2
+    _icon: {fileID: 21300000, guid: aeb3139ae6cafd24aa0dce5fedffa1f8, type: 3}
+    _levels:
+    - _value: 10
+      _price:
+        _itemId: coin
+        _count: 0
+    - _value: 20
+      _price:
+        _itemId: coin
+        _count: 5
+    - _value: 30
+      _price:
+        _itemId: coin
+        _count: 10
+    - _value: 40
+      _price:
+        _itemId: coin
+        _count: 30
+    - _value: 50
+      _price:
+        _itemId: coin
+        _count: 50

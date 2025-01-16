@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Components.Model;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -30,6 +31,7 @@ namespace Assets.Scripts.Components.Health
             if (_health <= 0)
             {
                 _onDie?.Invoke();
+
             }
 
             if (healthDelta > 0)

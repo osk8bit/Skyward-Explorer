@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.UI;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Assets.Scripts.Components.Creature.Hero
@@ -29,7 +28,7 @@ namespace Assets.Scripts.Components.Creature.Hero
 
         public void OnRoll(InputAction.CallbackContext context)
         {
-            if(context.canceled)
+            if (context.canceled)
                 _hero.Roll();
         }
 
@@ -38,7 +37,7 @@ namespace Assets.Scripts.Components.Creature.Hero
             if (context.started)
                 _hero.Block();
 
-            if(context.canceled)
+            if (context.canceled)
                 _hero.StopHoldingBlock();
 
         }
@@ -48,5 +47,12 @@ namespace Assets.Scripts.Components.Creature.Hero
             if (context.canceled)
                 _hero.Interact();
         }
+
+        public void OnHeal(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+                _hero.Heal();
+        }
+
     }
 }

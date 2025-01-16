@@ -13,6 +13,7 @@ namespace Assets.Scripts.Components.LevelManegment
 
             var scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
+
         }
     }
 }

@@ -13,10 +13,10 @@ namespace Assets.Scripts.Dialogs
         [Space]
         [SerializeField] private float _textSpeed = 0.09f;
 
-        //[Header("Sounds")]
-        //[SerializeField] private AudioClip _typing;
-        //[SerializeField] private AudioClip _open;
-        //[SerializeField] private AudioClip _close;
+        [Header("Sounds")]
+        [SerializeField] private AudioClip _typing;
+        [SerializeField] private AudioClip _open;
+        [SerializeField] private AudioClip _close;
 
         [Space][SerializeField] protected DialogContent _content;
 
@@ -24,7 +24,7 @@ namespace Assets.Scripts.Dialogs
 
         private DialogData _data;
         private int _currentSentence;
-        //private AudioSource _sfxSource;
+        private AudioSource _sfxSource;
         private Coroutine _typingRoutine;
         private UnityEvent _onComplete;
 
@@ -32,7 +32,7 @@ namespace Assets.Scripts.Dialogs
 
         private void Start()
         {
-            //_sfxSource = AudioUtills.FindSfxSource();
+            _sfxSource = AudioUtills.FindSfxSource();
         }
         public void ShowDialog(DialogData data, UnityEvent onComplete)
         {
@@ -42,7 +42,7 @@ namespace Assets.Scripts.Dialogs
             CurrentContent.Text.text = string.Empty;
 
             _container.SetActive(true);
-            //_sfxSource.PlayOneShot(_open);
+            _sfxSource.PlayOneShot(_open);
             _animator.SetBool(IsOpen, true);
         }
 
@@ -52,12 +52,12 @@ namespace Assets.Scripts.Dialogs
             var sentence = CurrentSentense;
             CurrentContent.TrySetIcon(sentence.Icon);
 
-            var localizedSentence = sentence.Value;
+            var localizedSentence = sentence.Value.Localize();
 
             foreach (var letter in localizedSentence)
             {
                 CurrentContent.Text.text += letter;
-                //_sfxSource.PlayOneShot(_typing);
+                _sfxSource.PlayOneShot(_typing);
                 yield return new WaitForSeconds(_textSpeed);
             }
             _typingRoutine = null;
@@ -70,7 +70,7 @@ namespace Assets.Scripts.Dialogs
             if (_typingRoutine == null) return;
 
             StopTypeAnimation();
-            var sentence = _data.Sentences[_currentSentence].Value;
+            var sentence = _data.Sentences[_currentSentence].Value.Localize();
             CurrentContent.Text.text = sentence;
         }
 
@@ -96,7 +96,7 @@ namespace Assets.Scripts.Dialogs
         private void HideDialogBox()
         {
             _animator.SetBool(IsOpen, false);
-            //_sfxSource.PlayOneShot(_close);
+            _sfxSource.PlayOneShot(_close);
         }
 
         private void StopTypeAnimation()

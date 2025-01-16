@@ -3,6 +3,8 @@ using Assets.Scripts.Components.Model;
 using Assets.Scripts.UI.Widgets;
 using UnityEngine;
 using System.Collections.Generic;
+using Assets.Scripts.Utils;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.UI
 {
@@ -10,6 +12,7 @@ namespace Assets.Scripts.UI
     {
 
         [SerializeField] private List<ProgressBarWidget> _hearts;
+        [SerializeField] private GameObject _statButton;
 
         private GameSession _session;
 
@@ -20,10 +23,11 @@ namespace Assets.Scripts.UI
             OnHealthChanged(_session.Data.Hp.Value, 0);
         }
 
+
         private void OnHealthChanged(int newValue, int oldValue)
         {
             var maxHealth = DefsFacade.I.Player.MaxHealth;
-            var healthPerHeart = maxHealth/_hearts.Count;
+            var healthPerHeart = maxHealth / _hearts.Count;
 
             for (int i = 0; i < _hearts.Count; i++)
             {
@@ -35,9 +39,25 @@ namespace Assets.Scripts.UI
             }
         }
 
+        public void OnSettings()
+        {
+            WindowUtils.CreateWindow("UI/InGameMenuWindow");
+        }
+
         private void OnDestroy()
         {
             _session.Data.Hp.OnChanged -= OnHealthChanged;
         }
+
+        public void SetActiveStatButton()
+        {
+            _statButton.SetActive(true);
+        }
+
+        public void OnDebug()
+        {
+            WindowUtils.CreateWindow("UI/PlayerStatsWindow");
+        }
+
     }
 }

@@ -12,6 +12,8 @@ namespace Assets.Scripts.Components.Model.Data
 
         public IntProperty Hp = new IntProperty();
         public InventoryData Inventory => _inventory;
+
+        public LevelData Levels = new LevelData();
         public PlayerData Clone()
         {
             var json = JsonUtility.ToJson(this);

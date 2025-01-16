@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System;
 using UnityEngine;
 using Assets.Scripts.Components.Model.Definition;
 using Assets.Scripts.Components.Model.Definition.Repository.Item;
+using System.Linq;
+using Assets.Scripts.Components.Model.Definition.Repository;
 
 namespace Assets.Scripts.Model
 {
@@ -15,6 +16,7 @@ namespace Assets.Scripts.Model
         public delegate void OnInventoryChanged(string id, int value);
 
         public OnInventoryChanged onChanged;
+
 
         public void Add(string id, int value)
         {
@@ -35,19 +37,9 @@ namespace Assets.Scripts.Model
             onChanged?.Invoke(id, Count(id));
         }
 
-        public InventoryItemData[] GetAll(params ItemTag[] tags)
+        public InventoryItemData[] GetAll()
         {
-            var refValue = new List<InventoryItemData>();
-            foreach (var item in _inventory)
-            {
-                var itemDef = DefsFacade.I.Items.Get(item.Id);
-                var isAllRequarementsMet = tags.All(x => itemDef.HasTag(x));
-                if (isAllRequarementsMet)
-                {
-                    refValue.Add(item);
-                }
-            }
-            return refValue.ToArray();
+            return _inventory.ToArray();
         }
         private void AddToStack(string id, int value)
         {
@@ -91,7 +83,25 @@ namespace Assets.Scripts.Model
             onChanged?.Invoke(id, Count(id));
         }
 
+        public bool IsEnough(params ItemWithCount[] items)
+        {
+            var joined = new Dictionary<string, int>();
+            foreach (var item in items)
+            {
+                if (joined.ContainsKey(item.ItemId))
+                    joined[item.ItemId] += item.Count;
+                else
+                    joined.Add(item.ItemId, item.Count);
+            }
 
+            foreach (var kvp in joined)
+            {
+                var count = Count(kvp.Key);
+                if (count < kvp.Value) return false;
+            }
+
+            return true;
+        }
 
         private void RemoveFromStack(string id, int value)
         {
@@ -136,7 +146,12 @@ namespace Assets.Scripts.Model
             }
             return count;
         }
-        
+
+        public bool HasItem(string id)
+        {
+            return _inventory.Any(item => item.Id == id);
+        }
+
     }
 
 

@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 4956324792618631243}
   - component: {fileID: 7024128960754459199}
   - component: {fileID: 989434203239008334}
+  - component: {fileID: 731787779412443170}
   m_Layer: 7
   m_Name: FlyingEye
   m_TagString: Enemy
@@ -109,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996978556079591736}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 80.95, y: -8.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -388,12 +389,46 @@ MonoBehaviour:
           m_StringArgument: disappear
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 731787779412443170}
+        m_TargetAssemblyTypeName: Assets.Scripts.Components.Audio.PlaySoundsComponent,
+          Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Die
+          m_BoolArgument: 1
+        m_CallState: 2
   _onHeal:
     m_PersistentCalls:
       m_Calls: []
   _onChange:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &731787779412443170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996978556079591736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650e6afe0f143ec4a8104e72cc47a2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sounds:
+  - _id: Run
+    _clip: {fileID: 8300000, guid: a4a74fe915daebc4cbf8a0b9ee45bb98, type: 3}
+  - _id: Die
+    _clip: {fileID: 8300000, guid: 9643a0e4cd594c1419ddc644fddce31b, type: 3}
+  - _id: Attack
+    _clip: {fileID: 8300000, guid: 146bd1fd7f23bdd4cb117a9644f26c97, type: 3}
+  - _id: Hit
+    _clip: {fileID: 8300000, guid: 5f22aea756a760c4ab1727b91c00c4fe, type: 3}
 --- !u!1 &2909986578199396343
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c337da581750e4f829f0c703c5bc74, type: 3}
+  m_Name: Items
+  m_EditorClassIdentifier: 
+  _collection:
+  - _id: coin
+    _icon: {fileID: -763208466, guid: 0a6f86c47bee4564e9abb91ff49c97f8, type: 3}
+    _tags: 0000000001000000
+  - _id: key
+    _icon: {fileID: 21300000, guid: 54663b220818d3e46b532480d0b47d28, type: 3}
+    _tags: 00000000
+  - _id: fish
+    _icon: {fileID: 21300000, guid: ec1505f832ecfc54c8f49eb4e142d7c4, type: 3}
+    _tags: 00000000
+  - _id: potion
+    _icon: {fileID: -919258480, guid: fb1bb4fdcb5f2f647865a2f6485f3f88, type: 3}
+    _tags: 

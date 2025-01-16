@@ -65,82 +65,129 @@
     <Compile Include="Assets\Scripts\Animations\GetTrigger.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Creature.cs" />
     <Compile Include="Assets\Scripts\Components\LevelManegment\ReloadLevelComponent.cs" />
+    <Compile Include="Assets\Texture\Bandits - Pixel Art\Demo\Bandit.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Data\Properties\IntProperty.cs" />
-    <Compile Include="Assets\Scripts\Dialogs\ShowOptionsComponent.cs" />
     <Compile Include="Assets\Scripts\Dialogs\DialogDef.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Definition\Localization\LocaleDef.cs" />
     <Compile Include="Assets\Scripts\Components\Interactions\InteractableComponent.cs" />
-    <Compile Include="Assets\Hero Knight - Pixel Art\Demo\DestroyEvent_HeroKnight.cs" />
-    <Compile Include="Assets\Scripts\Utils\Editors\SerializedPropertyExtensions.cs" />
-    <Compile Include="Assets\Scripts\Components\TimerComponent.cs" />
-    <Compile Include="Assets\Bandits - Pixel Art\Demo\Bandit.cs" />
-    <Compile Include="Assets\Scripts\Components\Model\Definition\IHaveId.cs" />
-    <Compile Include="Assets\Hero Knight - Pixel Art\Demo\Sensor_HeroKnight.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Data\Properties\FloatPersistentProperty.cs" />
+    <Compile Include="Assets\Scripts\Utils\Disposables\CompositeDisposable.cs" />
     <Compile Include="Assets\Scripts\Utils\Disposables\ActionDisposable.cs" />
     <Compile Include="Assets\Scripts\Components\Interactions\RequaireItemComponent.cs" />
+    <Compile Include="Assets\Scripts\UI\Localization\LocaleItemWidget.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Definition\StatDef.cs" />
     <Compile Include="Assets\Scripts\Animations\SpriteAnimation.cs" />
+    <Compile Include="Assets\Texture\Hero Knight - Pixel Art\Demo\Sensor_HeroKnight.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Mobs\CanReflectAttack.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Data\Properties\PersistentProperty.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Definition\Repository\DefRepository.cs" />
-    <Compile Include="Assets\Scripts\Components\Model\Definition\DefsFacade.cs" />
+    <Compile Include="Assets\Scripts\Components\Audio\PlaySfxSound.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\Dialogs\OptionItemWidget.cs" />
+    <Compile Include="Assets\Scripts\MiniGames\Roots\RandomizeChildren.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Data\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\ItemWidget.cs" />
+    <Compile Include="Assets\Scripts\UI\Localization\LocalizationManager.cs" />
     <Compile Include="Assets\Scripts\Dialogs\OptionDialogController.cs" />
-    <Compile Include="Assets\Scripts\Components\Interactions\DoInteractComponent.cs" />
-    <Compile Include="Assets\Scripts\Components\LevelManegment\ExitLevelComponent.cs" />
-    <Compile Include="Assets\Scripts\UI\Widgets\DataGroup.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\MovementPointComponent.cs" />
-    <Compile Include="Assets\Scripts\UI\Hp\HealthBar.cs" />
-    <Compile Include="Assets\Scripts\Components\Creature\Mobs\MobAi.cs" />
     <Compile Include="Assets\Scripts\Components\RestoreStateComponent.cs" />
+    <Compile Include="Assets\Scripts\Utils\WindowUtils.cs" />
+    <Compile Include="Assets\Scripts\Components\Collectables\Item.cs" />
     <Compile Include="Assets\Scripts\Components\ColliderBased\LayerCheck.cs" />
-    <Compile Include="Assets\Scripts\Components\Model\GameSession.cs" />
+    <Compile Include="Assets\Scripts\Utils\LocalizationExtensions.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Definition\Repository\ItemsRepository.cs" />
-    <Compile Include="Assets\Scripts\Components\Health\ModifyHealthComponent.cs" />
-    <Compile Include="Assets\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
-    <Compile Include="Assets\Scripts\Components\Health\HealthComponent.cs" />
-    <Compile Include="Assets\Scripts\GoBased\DestroyObjectComponent.cs" />
+    <Compile Include="Assets\Scripts\Utils\Editors\CustomButtonEditor.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Definition\Localization\LocalizationManager.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\ProgressBarWidget.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Data\LevelData.cs" />
+    <Compile Include="Assets\Fonts\Script\scriptTexttest.cs" />
     <Compile Include="Assets\Scripts\Components\ColliderBased\ColliderCheck.cs" />
-    <Compile Include="Assets\Scripts\Components\LevelManegment\SetFollowComponent.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Mobs\Patrolling\PatrolComponent.cs" />
     <Compile Include="Assets\Scripts\Utils\AudioUtills.cs" />
-    <Compile Include="Assets\Scripts\Model\InventoryData.cs" />
-    <Compile Include="Assets\Scripts\Utils\HandlesUtils.cs" />
+    <Compile Include="Assets\Texture\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
+    <Compile Include="Assets\Scripts\UI\Localization\LocalizationWindow.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Definition\PlayerDef.cs" />
-    <Compile Include="Assets\Scripts\Components\Model\Definition\Repository\Item\InventoryIdAttribute.cs" />
-    <Compile Include="Assets\Scripts\Components\ColliderBased\EnterCollisionComponent.cs" />
+    <Compile Include="Assets\Scripts\UI\PlayerStats\PlayerStatsWindow.cs" />
     <Compile Include="Assets\Scripts\Dialogs\DialogBoxController.cs" />
-    <Compile Include="Assets\Hero Knight - Pixel Art\ColorSwap\ColorSwap_HeroKnight.cs" />
-    <Compile Include="Assets\Hero Knight - Pixel Art\Demo\HeroKnight.cs" />
     <Compile Include="Assets\Scripts\Components\Collectables\InventoryAddComponent.cs" />
     <Compile Include="Assets\Scripts\UI\HudController.cs" />
     <Compile Include="Assets\Scripts\UI\LevelsLoader\LevelLoader.cs" />
-    <Compile Include="Assets\Scripts\Components\Camera\ChangeTrackedObjectOffset.cs" />
-    <Compile Include="Assets\Scripts\UI\Widgets\LifeBar\LifeBarWidget.cs" />
-    <Compile Include="Assets\Scripts\Components\Creature\Mobs\Patrolling\PointPatrol.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\CustomButton.cs" />
     <Compile Include="Assets\Scripts\Dialogs\ShowDialogComponent.cs" />
-    <Compile Include="Assets\Input\HeroInputAction.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Data\Properties\PrefsPersistentProperty.cs" />
     <Compile Include="Assets\Scripts\UI\UIPointerChecker.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Data\Properties\StringPersistentProperty.cs" />
     <Compile Include="Assets\Scripts\Utils\GameObjectExtensions.cs" />
     <Compile Include="Assets\Scripts\Dialogs\PersonilezedDialogBoxController.cs" />
+    <Compile Include="Assets\Scripts\Components\Audio\AudioSettingsComponent.cs" />
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
-    <Compile Include="Assets\Scripts\Components\Model\Data\ICanAddInInventory.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\VerticalLevitationComponent.cs" />
+    <Compile Include="Assets\Scripts\UI\SettingsWindow.cs" />
+    <Compile Include="Assets\Scripts\Components\ColliderBased\CheckCircleOverlap.cs" />
+    <Compile Include="Assets\Scripts\Dialogs\ShowDropComponent.cs" />
+    <Compile Include="Assets\Scripts\Utils\Disposables\UnityEventExtensions.cs" />
+    <Compile Include="Assets\Scripts\Components\Creature\Hero\HeroInputReader.cs" />
+    <Compile Include="Assets\Scripts\UI\Localization\AbstractLocalizeComponent.cs" />
+    <Compile Include="Assets\Scripts\Utils\Editors\ShowDropComponentEditor.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Data\GameSettings.cs" />
+    <Compile Include="Assets\Scripts\Dialogs\DropBoxController.cs" />
+    <Compile Include="Assets\Scripts\UI\Inventory\InventoryBoxController.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\StatsModel.cs" />
+    <Compile Include="Assets\Scripts\Dialogs\ShowOptionsComponent.cs" />
+    <Compile Include="Assets\Scripts\Utils\Editors\SerializedPropertyExtensions.cs" />
+    <Compile Include="Assets\Scripts\Components\TimerComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Definition\IHaveId.cs" />
+    <Compile Include="Assets\Scripts\UI\InGameMenuWindow.cs" />
+    <Compile Include="Assets\Scripts\UI\Localization\LocalizeText.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Definition\DefsFacade.cs" />
+    <Compile Include="Assets\Texture\Hero Knight - Pixel Art\Demo\DestroyEvent_HeroKnight.cs" />
+    <Compile Include="Assets\Scripts\Components\Interactions\DoInteractComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\LevelManegment\ExitLevelComponent.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\DataGroup.cs" />
+    <Compile Include="Assets\Texture\Hero Knight - Pixel Art\ColorSwap\ColorSwap_HeroKnight.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Data\InventoryModel.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Definition\Repository\StatsRepository.cs" />
+    <Compile Include="Assets\Texture\Hero Knight - Pixel Art\Demo\HeroKnight.cs" />
+    <Compile Include="Assets\Scripts\Components\Creature\Mobs\MobAi.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\GameSession.cs" />
+    <Compile Include="Assets\Scripts\Components\Audio\PlaySoundsComponent.cs" />
+    <Compile Include="Assets\Scripts\UI\AnimatedWindow.cs" />
+    <Compile Include="Assets\Scripts\Components\Health\ModifyHealthComponent.cs" />
+    <Compile Include="Assets\Scripts\MiniGames\Roots\Main.cs" />
+    <Compile Include="Assets\Scripts\Components\Health\HealthComponent.cs" />
+    <Compile Include="Assets\Scripts\Utils\Editors\InventoryIdAttributeDrawer.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\ProgressBarWidgetStats.cs" />
+    <Compile Include="Assets\Scripts\GoBased\DestroyObjectComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\LevelManegment\SetFollowComponent.cs" />
+    <Compile Include="Assets\Scripts\Model\InventoryData.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\InventoryItemWidget.cs" />
+    <Compile Include="Assets\Scripts\Utils\HandlesUtils.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Definition\Repository\Item\InventoryIdAttribute.cs" />
+    <Compile Include="Assets\Scripts\Components\ColliderBased\EnterCollisionComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\Camera\ChangeTrackedObjectOffset.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\LifeBar\LifeBarWidget.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\AudioSettingsWidget.cs" />
+    <Compile Include="Assets\Scripts\Components\Creature\Mobs\Patrolling\PointPatrol.cs" />
+    <Compile Include="Assets\Scripts\UI\WinWindow.cs" />
+    <Compile Include="Assets\Input\HeroInputAction.cs" />
+    <Compile Include="Assets\Scripts\UI\PlayerStats\StatWidget.cs" />
+    <Compile Include="Assets\Scripts\Components\Model\Data\ICanAddInInventory.cs" />
     <Compile Include="Assets\Scripts\Components\ColliderBased\EnterTriggerComponent.cs" />
+    <Compile Include="Assets\Scripts\MiniGames\Roots\Root.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenuWindow.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Definition\Repository\Item\ItemTag.cs" />
     <Compile Include="Assets\Scripts\Components\Collectables\CollectorComponent.cs" />
     <Compile Include="Assets\Scripts\Dialogs\DialogData.cs" />
-    <Compile Include="Assets\Scripts\Components\ColliderBased\CheckCircleOverlap.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Mobs\FlyingEyeAi.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\Trampoline.cs" />
     <Compile Include="Assets\Scripts\Dialogs\DialogContent.cs" />
-    <Compile Include="Assets\Scripts\Components\Creature\Hero\HeroInputReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Fonts\Documentation\JazzCreateAltKeys_BubbleFont.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\karsiori\Sprites\Pixel Art Key Pack - Animated\Key Pack - Read Me.txt" />
+    <None Include="Assets\Texture\karsiori\Sprites\Pixel Art Key Pack - Animated\Key Pack - Read Me.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
@@ -151,15 +198,16 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Fonts\Documentation\JazzCreateBubble_VersionHistory_1.1.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\Classic Legacy Pack - Village\Documentation\Terms.txt" />
+    <None Include="Assets\Texture\Classic Legacy Pack - Village\Documentation\Terms.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
-    <None Include="Assets\Hero Knight - Pixel Art\ColorSwap\Sprites-ColorSwap.shader" />
+    <None Include="Assets\Texture\Hero Knight - Pixel Art\ColorSwap\Sprites-ColorSwap.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -1006,8 +1054,8 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="PsdPlugin">
-      <HintPath>Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
@@ -1018,16 +1066,96 @@
       <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Burst">
-      <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+    <Reference Include="Unity.2D.Common.Path.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Path.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Aseprite.Common">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Collections">
+      <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PPv2URPConverters">
+      <HintPath>Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Aseprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PsdPlugin">
+      <HintPath>Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.2D.Common.Path.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Path.Editor.dll</HintPath>
+    <Reference Include="Unity.Burst">
+      <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
@@ -1036,6 +1164,10 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
@@ -1062,48 +1194,28 @@
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.2D.PixelPerfect.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.2D.Aseprite.Common">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.005">
       <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.005.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    <Reference Include="Unity.VisualScripting.Flow.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
       <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.2D.Common.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Timeline">
@@ -1118,36 +1230,20 @@
       <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Collections">
-      <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.2D.Psdimporter.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
       <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    <Reference Include="Unity.2D.Psdimporter.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.2D.PixelPerfect">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Mathematics">
@@ -1158,16 +1254,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.2D.Aseprite.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">

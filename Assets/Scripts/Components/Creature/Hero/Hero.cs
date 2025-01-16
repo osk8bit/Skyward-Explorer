@@ -2,6 +2,7 @@
 using Assets.Scripts.Components.Health;
 using Assets.Scripts.Components.Model;
 using Assets.Scripts.Components.Model.Data;
+using Assets.Scripts.Components.Model.Definition;
 using System.Collections;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ namespace Assets.Scripts.Components.Creature.Hero
         [SerializeField] private float _blockDuration = 2.0f;  // Длительность блока
         [SerializeField] private float _blockCooldown = 5.0f;  // Время перезарядки блока
 
-        
+
         public bool _imune = false;
         private bool _isAttacked = false;
         public bool _isRolling;
@@ -28,12 +29,10 @@ namespace Assets.Scripts.Components.Creature.Hero
         private bool _isBlockActive;  // Активен ли блок
         private float _originalSpeed;
         private bool _canAttack = true;
-        
+
         private Collider2D _collider;
         private HealthComponent _health;
         private GameSession _session;
-
-        //private int CoinsCount => _session.Data.Inventory.Count("Coin");
 
         private static readonly int IsRolling = Animator.StringToHash("is_rolling");
         private static readonly int IsBlocked = Animator.StringToHash("is_blocked");
@@ -64,7 +63,7 @@ namespace Assets.Scripts.Components.Creature.Hero
 
         private void FixedUpdate()
         {
-            if (_isRolling )
+            if (_isRolling)
             {
                 Rigidbody.velocity = Vector2.zero;
 
@@ -96,11 +95,31 @@ namespace Assets.Scripts.Components.Creature.Hero
 
         protected override float CalculateSpeed()
         {
-            if (!_isAttacked)
-                return _speed;
+            if (_isAttacked)
+                return 0;
 
-            return 0;
+            var defaultSpeed = _session.StatsModel.GetValue(StatId.Speed);
+            return defaultSpeed;
 
+        }
+
+        private void ApplyRangeDamageStat(CheckCircleOverlap attackRange)
+        {
+            var hpModify = attackRange.GetComponent<ModifyHealthComponent>();
+            var damageValue = (int)_session.StatsModel.GetValue(StatId.RangeDamage);
+            damageValue = ModifyDamageByCrit(damageValue);
+            hpModify.SetDelta(-damageValue);
+        }
+
+        private int ModifyDamageByCrit(int damage)
+        {
+            var critChance = _session.StatsModel.GetValue(StatId.CriticalDamage);
+            if (Random.value * 100 <= critChance)
+            {
+                return damage * 2;
+            }
+
+            return damage;
         }
 
         protected override float CalculateYVelocity()
@@ -132,6 +151,7 @@ namespace Assets.Scripts.Components.Creature.Hero
 
         public override void Attack()
         {
+            ApplyRangeDamageStat(_attackRange);
             if (_timeSinceAttack > 0.25f && !_isRolling && _canAttack)
             {
                 _isAttacked = true;
@@ -158,6 +178,7 @@ namespace Assets.Scripts.Components.Creature.Hero
             _session.Data.Inventory.Add(id, value);
         }
 
+
         public void StopAttack()
         {
             _isAttacked = false;
@@ -173,7 +194,7 @@ namespace Assets.Scripts.Components.Creature.Hero
             _isRolling = true;
         }
 
-        
+
         public void Roll()
         {
             if (IsGrounded && !_isBlockActive)
@@ -242,7 +263,7 @@ namespace Assets.Scripts.Components.Creature.Hero
                 StartCoroutine(BlockDurationRoutine());
                 StartCoroutine(BlockCooldowRoutine());
             }
-                
+
         }
 
         public void StopBlock()
@@ -275,5 +296,19 @@ namespace Assets.Scripts.Components.Creature.Hero
         {
             _interactionCheck.Check();
         }
+
+        public void Heal()
+        {
+            var inventory = _session.Data.Inventory;
+            if (inventory.HasItem("potion"))
+            {
+                inventory.Remove("potion", 1);
+                if (_session.Data.Hp.Value < 10)
+                {
+                    _health.ModifyHealth(1);
+                }
+            }
+        }
+
     }
 }

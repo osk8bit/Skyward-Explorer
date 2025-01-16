@@ -71,6 +71,15 @@ public partial class @HeroInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""heal"",
+                    ""type"": ""Button"",
+                    ""id"": ""47aab694-3784-4b3d-8b8b-9040cacdc337"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -170,6 +179,17 @@ public partial class @HeroInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""94797e05-c792-449f-a5df-4273d283dcb8"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""heal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -762,6 +782,7 @@ public partial class @HeroInputAction: IInputActionCollection2, IDisposable
         m_Hero_block = m_Hero.FindAction("block", throwIfNotFound: true);
         m_Hero_roll = m_Hero.FindAction("roll", throwIfNotFound: true);
         m_Hero_interact = m_Hero.FindAction("interact", throwIfNotFound: true);
+        m_Hero_heal = m_Hero.FindAction("heal", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -840,6 +861,7 @@ public partial class @HeroInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Hero_block;
     private readonly InputAction m_Hero_roll;
     private readonly InputAction m_Hero_interact;
+    private readonly InputAction m_Hero_heal;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -849,6 +871,7 @@ public partial class @HeroInputAction: IInputActionCollection2, IDisposable
         public InputAction @block => m_Wrapper.m_Hero_block;
         public InputAction @roll => m_Wrapper.m_Hero_roll;
         public InputAction @interact => m_Wrapper.m_Hero_interact;
+        public InputAction @heal => m_Wrapper.m_Hero_heal;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -873,6 +896,9 @@ public partial class @HeroInputAction: IInputActionCollection2, IDisposable
             @interact.started += instance.OnInteract;
             @interact.performed += instance.OnInteract;
             @interact.canceled += instance.OnInteract;
+            @heal.started += instance.OnHeal;
+            @heal.performed += instance.OnHeal;
+            @heal.canceled += instance.OnHeal;
         }
 
         private void UnregisterCallbacks(IHeroActions instance)
@@ -892,6 +918,9 @@ public partial class @HeroInputAction: IInputActionCollection2, IDisposable
             @interact.started -= instance.OnInteract;
             @interact.performed -= instance.OnInteract;
             @interact.canceled -= instance.OnInteract;
+            @heal.started -= instance.OnHeal;
+            @heal.performed -= instance.OnHeal;
+            @heal.canceled -= instance.OnHeal;
         }
 
         public void RemoveCallbacks(IHeroActions instance)
@@ -1079,6 +1108,7 @@ public partial class @HeroInputAction: IInputActionCollection2, IDisposable
         void OnBlock(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnHeal(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

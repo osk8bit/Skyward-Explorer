@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6822313893644450658}
   - component: {fileID: 2499737241864402109}
   - component: {fileID: 5649790251487304776}
+  - component: {fileID: 5653017411023976995}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405025977824335175}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.968512, y: 7.7618313, z: -0.010985617}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -180,6 +181,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5653017411023976995}
+        m_TargetAssemblyTypeName: Assets.Scripts.Components.Audio.PlaySfxSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2499737241864402109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,3 +221,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectToDedstroy: {fileID: 1405025977824335175}
   _state: {fileID: 0}
+--- !u!114 &5653017411023976995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405025977824335175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a75092fab68fa74da23da5e3c02ae2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 8300000, guid: 6e7c551492f2fb648bec159bb2ea697f, type: 3}

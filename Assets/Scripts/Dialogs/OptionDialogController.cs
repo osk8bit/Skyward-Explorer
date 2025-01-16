@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.UI.HUD.Dialogs;
 using Assets.Scripts.UI.Widgets;
+using Assets.Scripts.Utils;
 using System;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace Assets.Scripts.Dialogs
         [SerializeField] private TMP_Text _contentText;
         [SerializeField] private Transform _optionsContainer;
         [SerializeField] private OptionItemWidget _prefab;
+        
 
         private DataGroup<OptionData, OptionItemWidget> _dataGroup;
 
@@ -29,7 +31,7 @@ namespace Assets.Scripts.Dialogs
         public void Show(OptionDialogData data)
         {
             _content.SetActive(true);
-            _contentText.text = data.DialogText;
+            _contentText.text = data.DialogText.Localize();
 
             _dataGroup.SetData(data.Options);
         }

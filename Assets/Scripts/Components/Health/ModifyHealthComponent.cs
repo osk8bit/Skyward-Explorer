@@ -8,6 +8,11 @@ namespace Assets.Scripts.Components.Health
         [SerializeField] private int _hpDelta;
         [SerializeField] private Hero _hero;
 
+        public void SetDelta(int delta)
+        {
+            _hpDelta = delta;
+        }
+
         public void ApplyHealth(GameObject target)
         {
             var healthComponent = target.GetComponent<HealthComponent>();

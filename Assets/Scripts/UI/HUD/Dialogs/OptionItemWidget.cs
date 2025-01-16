@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.UI.Widgets;
+using Assets.Scripts.Utils;
 using System;
 using TMPro;
 using UnityEngine;
@@ -16,7 +17,7 @@ namespace Assets.Scripts.UI.HUD.Dialogs
         public void SetData(OptionData data, int index)
         {
             _data = data;
-            _label.text = data.Text;
+            _label.text = data.Text.Localize();
         }
 
         public void OnSelect()

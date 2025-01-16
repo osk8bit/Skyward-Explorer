@@ -102,9 +102,10 @@ GameObject:
   - component: {fileID: 9047662952566609477}
   - component: {fileID: 3120471165919364419}
   - component: {fileID: 1403263989206158077}
+  - component: {fileID: 7560638261556935990}
   m_Layer: 7
   m_Name: Bandit
-  m_TagString: Swordsman
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -347,6 +348,9 @@ MonoBehaviour:
   _onHeal:
     m_PersistentCalls:
       m_Calls: []
+  _onChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5847545514852607851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,6 +417,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vulnerability: {fileID: 6431576975579911907}
+--- !u!114 &7560638261556935990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116036964383300626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650e6afe0f143ec4a8104e72cc47a2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sounds:
+  - _id: Run
+    _clip: {fileID: 8300000, guid: a4a74fe915daebc4cbf8a0b9ee45bb98, type: 3}
+  - _id: Die
+    _clip: {fileID: 8300000, guid: 9643a0e4cd594c1419ddc644fddce31b, type: 3}
+  - _id: Attack
+    _clip: {fileID: 8300000, guid: ce9cb2fb599261b449dccc330d52b2b5, type: 3}
+  - _id: Hit
+    _clip: {fileID: 8300000, guid: 9d88e7a3ab658734baf64f1a9af6a557, type: 3}
 --- !u!1 &2828304393030773822
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,11 +790,11 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Assets.Scripts.Components.Health.HealthComponent,
           Assembly-CSharp
         m_MethodName: ModifyHealth
-        m_Mode: 4
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: -0.5
           m_StringArgument: 
           m_BoolArgument: 0
@@ -796,7 +821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5761210835659861383}
   - component: {fileID: 8649411428388948519}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: DeadCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

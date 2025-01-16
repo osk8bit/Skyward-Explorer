@@ -1,4 +1,6 @@
 ﻿using Assets.Scripts.Components.Model.Data;
+using Assets.Scripts.Utils.Disposables;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,10 +12,15 @@ namespace Assets.Scripts.Components.Model
         [SerializeField] private PlayerData _data;
 
         public PlayerData Data => _data;
-
-
         private PlayerData _save;
+
+        private readonly CompositeDisposable _trash = new CompositeDisposable();
+        public InventoryModel Inventory { get; private set; }
+
+        public StatsModel StatsModel { get; private set; }
+
         public static GameSession Instance { get; private set; }
+
 
         private void Awake()
         {
@@ -26,13 +33,25 @@ namespace Assets.Scripts.Components.Model
             else
             {
                 Save();
+                InitModels();
                 DontDestroyOnLoad(this);
                 Instance = this;
                 StartSession();
             }
+
         }
 
-         public void Save()
+
+        private void InitModels()
+        {
+            Inventory = new InventoryModel(Data);
+            _trash.Retain(Inventory);
+
+            StatsModel = new StatsModel(_data);
+            _trash.Retain(StatsModel);
+        }
+
+        public void Save()
         {
             _save = _data.Clone();
         }
@@ -41,17 +60,24 @@ namespace Assets.Scripts.Components.Model
         {
             _data = _save.Clone();
 
+            _trash.Dispose();
+            InitModels();
+
         }
 
         private void StartSession()
         {
-            LoadUI();
+            if (!SceneManager.GetSceneByName("Hud").isLoaded)
+            {
+                LoadUI();
+            }
         }
 
         private void OnDestroy()
         {
             if (Instance == this)
                 Instance = null;
+            _trash.Dispose();
         }
 
         private void LoadUI()
