@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.Components.Model.Data;
 using Assets.Scripts.Utils.Disposables;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

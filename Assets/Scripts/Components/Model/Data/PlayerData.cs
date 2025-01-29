@@ -13,6 +13,8 @@ namespace Assets.Scripts.Components.Model.Data
         public IntProperty Hp = new IntProperty();
         public InventoryData Inventory => _inventory;
 
+        public BoolProperty StatButtonUnlocked = new BoolProperty();
+
         public LevelData Levels = new LevelData();
         public PlayerData Clone()
         {

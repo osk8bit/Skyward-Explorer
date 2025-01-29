@@ -4,7 +4,6 @@ using Assets.Scripts.UI.Widgets;
 using UnityEngine;
 using System.Collections.Generic;
 using Assets.Scripts.Utils;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.UI
 {
@@ -21,6 +20,7 @@ namespace Assets.Scripts.UI
             _session = GameSession.Instance;
             _session.Data.Hp.OnChanged += OnHealthChanged;
             OnHealthChanged(_session.Data.Hp.Value, 0);
+            _statButton.SetActive(_session.Data.StatButtonUnlocked.Value);
         }
 
 
@@ -31,11 +31,10 @@ namespace Assets.Scripts.UI
 
             for (int i = 0; i < _hearts.Count; i++)
             {
-                // Рассчитываем текущее здоровье для каждого сердца
                 float heartHealth = Mathf.Clamp(newValue - (i * healthPerHeart), 0, healthPerHeart);
-                float fillValue = heartHealth / healthPerHeart;  // Значение от 0 до 1
+                float fillValue = heartHealth / healthPerHeart;
 
-                _hearts[i].SetProgress(fillValue);  // Обновляем отображение сердца
+                _hearts[i].SetProgress(fillValue);
             }
         }
 
@@ -43,6 +42,7 @@ namespace Assets.Scripts.UI
         {
             WindowUtils.CreateWindow("UI/InGameMenuWindow");
         }
+
 
         private void OnDestroy()
         {
@@ -52,6 +52,7 @@ namespace Assets.Scripts.UI
         public void SetActiveStatButton()
         {
             _statButton.SetActive(true);
+            _session.Data.StatButtonUnlocked.Value = true;
         }
 
         public void OnDebug()

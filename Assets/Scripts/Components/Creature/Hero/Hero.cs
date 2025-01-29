@@ -14,8 +14,7 @@ namespace Assets.Scripts.Components.Creature.Hero
         [SerializeField] private GameObject _shield;
         [SerializeField] private ColliderCheck _ceilingCheck;
         [SerializeField] private CheckCircleOverlap _interactionCheck;
-        [SerializeField] private float _blockDuration = 2.0f;  // Длительность блока
-        [SerializeField] private float _blockCooldown = 5.0f;  // Время перезарядки блока
+        [SerializeField] private float _blockCooldown = 5.0f;
 
 
         public bool _imune = false;
@@ -25,8 +24,7 @@ namespace Assets.Scripts.Components.Creature.Hero
         private int _currentAttack = 0;
         public bool IsCeiling;
         private bool _canBlock = true;
-        private bool _isHoldingBlock; // Удерживается ли кнопка блока
-        private bool _isBlockActive;  // Активен ли блок
+        private bool _isBlockActive; 
         private float _originalSpeed;
         private bool _canAttack = true;
 
@@ -95,7 +93,7 @@ namespace Assets.Scripts.Components.Creature.Hero
 
         protected override float CalculateSpeed()
         {
-            if (_isAttacked)
+            if (_isAttacked || _isBlockActive)
                 return 0;
 
             var defaultSpeed = _session.StatsModel.GetValue(StatId.Speed);
@@ -179,16 +177,6 @@ namespace Assets.Scripts.Components.Creature.Hero
         }
 
 
-        public void StopAttack()
-        {
-            _isAttacked = false;
-        }
-        public void StopRoll()
-        {
-            _isRolling = false;
-            _collider.isTrigger = false;
-
-        }
         public void RollWhileCeiling()
         {
             _isRolling = true;
@@ -199,6 +187,7 @@ namespace Assets.Scripts.Components.Creature.Hero
         {
             if (IsGrounded && !_isBlockActive)
             {
+                _isAttacked = false;
                 _collider.isTrigger = true;
                 _isRolling = true;
                 Animator.SetTrigger(IsRolling);
@@ -212,74 +201,41 @@ namespace Assets.Scripts.Components.Creature.Hero
                 _canAttack = false;
                 Animator.SetTrigger(IsBlocked);
                 _shield.SetActive(true);
-                _imune = true;
-                _isHoldingBlock = true;
+                _health.Immune.Retain(this);
                 _isBlockActive = true;
 
                 StartCoroutine(BlockCooldowRoutine());
             }
         }
 
-        public void PressureCheck()
-        {
-            // Проверяем, удерживается ли кнопка блока
-            if (_isHoldingBlock)
-            {
-                IdleBlock(); // Переходим в состояние IdleBlock
-            }
-            else
-            {
-                StopBlock(); // Заканчиваем блок
-            }
-        }
-
-
-        private IEnumerator BlockDurationRoutine()
-        {
-            _isAttacked = false;
-            // Держим блок в течение _blockDuration
-            yield return new WaitForSeconds(_blockDuration);
-            StopBlock();
-            // Деактивируем блок
-        }
-
         private IEnumerator BlockCooldowRoutine()
         {
             _canBlock = false;
-            // Ждем окончания перезарядки
             yield return new WaitForSeconds(_blockCooldown);
-            _canBlock = true;  // Позволяем снова использовать блок
+            _canBlock = true;
         }
 
-
-        public void IdleBlock()
+        public void StopAttack()
         {
-            if (_isBlockActive)
-            {
-                _canAttack = false;
-                _shield.SetActive(false);
-                Animator.SetBool(IsIdleBlock, true);
-                _speed = 0;  // Отключаем движение
-                StartCoroutine(BlockDurationRoutine());
-                StartCoroutine(BlockCooldowRoutine());
-            }
+            _isAttacked = false;
+        }
+        public void StopRoll()
+        {
+            _isRolling = false;
+            _collider.isTrigger = false;
 
         }
 
         public void StopBlock()
         {
             _shield.SetActive(false);
-            _imune = false;
+            _health.Immune.Release(this);
             Animator.SetBool(IsIdleBlock, false);
-            _speed = _originalSpeed;  // Возвращаем изначальную скорость
+            _speed = _originalSpeed;
             _isBlockActive = false;
             _canAttack = true;
         }
 
-        public void StopHoldingBlock()
-        {
-            _isHoldingBlock = false;
-        }
 
         public override void TakeDamage()
         {
@@ -309,6 +265,7 @@ namespace Assets.Scripts.Components.Creature.Hero
                 }
             }
         }
+
 
     }
 }

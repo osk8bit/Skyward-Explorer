@@ -65,7 +65,7 @@ MonoBehaviour:
   - Key: chest_open
     Value: "El cofre est\xE1 abierto!\r"
   - Key: put_inventory
-    Value: "poner en inventario\r"
+    Value: "TOMA TODO\r"
   - Key: door_open
     Value: "La puerta est\xE1 abierta! Deber\xEDa ir m\xE1s lejos?\r"
   - Key: silence
@@ -108,4 +108,16 @@ MonoBehaviour:
   - Key: Damage
     Value: "Da\xF1o\r"
   - Key: Critical Damage
-    Value: "Da\xF1o cr\xEDtico"
+    Value: "Da\xF1o cr\xEDtico\r"
+  - Key: find_key_door
+    Value: "Encuentra la llave y la puerta se abrir\xE1!\r"
+  - Key: boss_start_dialog
+    Value: "No deber\xEDas haber venido aqu\xED! No te dejar\xE9 salir de aqu\xED!\r"
+  - Key: hero_start_boss_dialog
+    Value: "ya veremos m\xE1s tarde\r"
+  - Key: boss_end_dialog
+    Value: "NOOOOO!\r"
+  - Key: hero_end_boss_dialog
+    Value: "Ya te lo dije!\r"
+  - Key: potion_instruction
+    Value: "Has recibido una poci\xF3n de salud! Para usarlo presione Q"

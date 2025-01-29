@@ -13,19 +13,18 @@ namespace Assets.Scripts.Dialogs
         [Serializable]
         public class ItemEntry
         {
-            [InventoryId] public string itemId;  // ID предмета из репозитория
-            public int quantity = 1;             // Количество предметов
+            [InventoryId] public string itemId;  
+            public int quantity = 1;             
         }
 
-        [SerializeField] private DropBoxController.DropBoxData _data;  // Данные для отображения
-        [SerializeField] private List<ItemEntry> _items = new List<ItemEntry>(); // Список предметов
+        [SerializeField] private DropBoxController.DropBoxData _data;  
+        [SerializeField] private List<ItemEntry> _items = new List<ItemEntry>(); 
 
         private DropBoxController _dropBox;
-        private ItemsRepository _itemsRepository; // Репозиторий предметов
+        private ItemsRepository _itemsRepository; 
 
         private void Awake()
         {
-            // Загрузка репозитория из папки Resources
             _itemsRepository = (ItemsRepository)Resources.Load("Items");
         }
 
@@ -34,7 +33,6 @@ namespace Assets.Scripts.Dialogs
             if (_dropBox == null)
                 _dropBox = FindObjectOfType<DropBoxController>();
 
-            // Заполняем данные для DropBox из выбранных предметов
             _data.Items = new List<ItemDef>();
 
             foreach (var entry in _items)

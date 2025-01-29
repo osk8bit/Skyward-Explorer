@@ -1,5 +1,4 @@
-﻿using System.IO.Enumeration;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Dialogs
 {

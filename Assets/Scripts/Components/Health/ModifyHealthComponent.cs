@@ -1,13 +1,11 @@
-﻿using Assets.Scripts.Components.Creature.Hero;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Components.Health
 {
     public class ModifyHealthComponent : MonoBehaviour
     {
         [SerializeField] private int _hpDelta;
-        [SerializeField] private Hero _hero;
-
+        
         public void SetDelta(int delta)
         {
             _hpDelta = delta;
@@ -16,7 +14,7 @@ namespace Assets.Scripts.Components.Health
         public void ApplyHealth(GameObject target)
         {
             var healthComponent = target.GetComponent<HealthComponent>();
-            if (healthComponent != null && !_hero._imune)
+            if (healthComponent != null)
             {
                 healthComponent.ModifyHealth(_hpDelta);
             }

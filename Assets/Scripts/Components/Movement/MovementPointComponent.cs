@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Components.Movement
@@ -6,6 +7,7 @@ namespace Assets.Scripts.Components.Movement
     public class MovementPointComponent : MonoBehaviour
     {
         [SerializeField] private Transform[] _points;
+        [SerializeField] private List<string> _attachableTags;
         [SerializeField] private float _speed;
         [SerializeField] private float _waitTime = 3f;
         [SerializeField] private bool _isMoving = false;
@@ -47,13 +49,16 @@ namespace Assets.Scripts.Components.Movement
 
         void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.tag == "Player")
-                collision.gameObject.transform.SetParent(gameObject.transform, true);
+            if (_attachableTags.Contains(collision.gameObject.tag))
+                collision.transform.SetParent(transform);
         }
 
         void OnCollisionExit2D(Collision2D collision)
         {
-            collision.gameObject.transform.parent = null;
+            if (collision.gameObject != null && collision.gameObject.activeInHierarchy)
+            {
+                collision.transform.SetParent(null);
+            }
         }
 
         private IEnumerator Wait()

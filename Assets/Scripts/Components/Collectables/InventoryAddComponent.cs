@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Components.Model;
-using Assets.Scripts.Components.Model.Data;
+﻿using Assets.Scripts.Components.Model.Data;
 using Assets.Scripts.Components.Model.Definition.Repository.Item;
 using System.Collections.Generic;
 using UnityEngine;

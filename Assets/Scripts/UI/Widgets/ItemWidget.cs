@@ -8,23 +8,22 @@ namespace Assets.Scripts.UI.Widgets
 {
     public class ItemWidget : MonoBehaviour
     {
-        [SerializeField] private Image _icon;        // Иконка предмета
-        [SerializeField] private TMP_Text _count;    // Текст количества предметов
+        [SerializeField] private Image _icon;        
+        [SerializeField] private TMP_Text _count;    
         [SerializeField] private TMP_Text _value;
 
         private string _itemId;
         private int _quantity;
 
-        // Публичные свойства для доступа к данным
         public string ItemId => _itemId;
         public int Quantity => _quantity;
 
         public void SetData(ItemDef itemDef, int quantity = 1)
         {
-            _itemId = itemDef.Id;          // Сохраняем ID предмета
-            _quantity = quantity;          // Сохраняем количество
-            _icon.sprite = itemDef.Icon;   // Установка иконки предмета
-            _count.text = quantity > 1 ? quantity.ToString() : ""; // Установка количества, если больше 1
+            _itemId = itemDef.Id;   
+            _quantity = quantity;
+            _icon.sprite = itemDef.Icon;
+            _count.text = quantity > 1 ? quantity.ToString() : "";
         }
 
         public void SetData(ItemWithCount price)

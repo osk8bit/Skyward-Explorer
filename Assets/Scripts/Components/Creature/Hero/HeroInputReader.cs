@@ -18,7 +18,6 @@ namespace Assets.Scripts.Components.Creature.Hero
         {
             if (context.canceled)
             {
-                // Проверяем, наведен ли курсор на UI через UIPointerChecker
                 if (uiPointerChecker != null && uiPointerChecker.IsPointerOverUI())
                     return;
 
@@ -36,9 +35,6 @@ namespace Assets.Scripts.Components.Creature.Hero
         {
             if (context.started)
                 _hero.Block();
-
-            if (context.canceled)
-                _hero.StopHoldingBlock();
 
         }
 

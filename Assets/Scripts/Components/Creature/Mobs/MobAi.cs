@@ -7,17 +7,17 @@ namespace Assets.Scripts.Components.Creature.Mobs
 {
     public class MobAi : MonoBehaviour
     {
-        [SerializeField] private ColliderCheck _vision;
+        [SerializeField] protected ColliderCheck _vision;
         [SerializeField] protected ColliderCheck _canAttack;
 
         [SerializeField] private float _alarmDelay = 0.5f;
         [SerializeField] private float _attackCooldown = 1f;
-        [SerializeField] private float _missCooldown = 0.5f;
+        [SerializeField] protected float _missCooldown = 0.5f;
 
-        [SerializeField] private float _horizontalTrashold = 0.2f;
+        [SerializeField] protected float _horizontalTrashold = 0.2f;
 
         private IEnumerator _current;
-        private GameObject _target;
+        protected GameObject _target;
 
         private bool _isDead;
         protected bool _onAttack;
@@ -25,15 +25,15 @@ namespace Assets.Scripts.Components.Creature.Mobs
         private static readonly int IsDeadKey = Animator.StringToHash("is-dead");
 
         protected Creature _creature;
-        private Animator _animator;
+        protected Animator _animator;
         private PatrolComponent _patrol;
-        private void Awake()
+        protected virtual void Awake()
         {
             _creature = GetComponent<Creature>();
             _animator = GetComponent<Animator>();
             _patrol = GetComponent<PatrolComponent>();
         }
-        private void Start()
+        protected virtual void Start()
         {
             ChangeStateTo(_patrol.DoPatrol());
         }
@@ -45,7 +45,7 @@ namespace Assets.Scripts.Components.Creature.Mobs
             ChangeStateTo(AgroToHero());
         }
 
-        private IEnumerator AgroToHero()
+        protected IEnumerator AgroToHero()
         {
             LookAtHero();
             yield return new WaitForSeconds(_alarmDelay);
@@ -60,7 +60,7 @@ namespace Assets.Scripts.Components.Creature.Mobs
             _creature.UpdateSpriteDirection(direction);
         }
 
-        protected IEnumerator GoToHero()
+        protected virtual IEnumerator GoToHero()
         {
             while (_vision.IsTouchingLayer)
             {
@@ -92,7 +92,7 @@ namespace Assets.Scripts.Components.Creature.Mobs
                 _creature.Attack();
                 yield return new WaitForSeconds(_attackCooldown);
             }
-
+            LookAtHero();
             ChangeStateTo(GoToHero());
         }
 

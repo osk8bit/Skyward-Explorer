@@ -64,7 +64,7 @@ MonoBehaviour:
   - Key: chest_open
     Value: "The chest is open!\r"
   - Key: put_inventory
-    Value: "put in inventory\r"
+    Value: "TAKE ALL\r"
   - Key: door_open
     Value: "The door is open! Should I go further?\r"
   - Key: silence
@@ -107,4 +107,16 @@ MonoBehaviour:
   - Key: Damage
     Value: "Damage\r"
   - Key: Critical Damage
-    Value: Critical damage
+    Value: "Critical damage\r"
+  - Key: find_key_door
+    Value: "Find the key and the door will open!\r"
+  - Key: boss_start_dialog
+    Value: "You shouldn't have come here! I won't let you out of here!\r"
+  - Key: hero_start_boss_dialog
+    Value: "We'll see about that later\r"
+  - Key: boss_end_dialog
+    Value: "NOOOOO!\r"
+  - Key: hero_end_boss_dialog
+    Value: "I told ya!\r"
+  - Key: potion_instruction
+    Value: You have received a health potion! To use it  press Q

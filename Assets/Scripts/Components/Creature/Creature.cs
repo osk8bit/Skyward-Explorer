@@ -23,6 +23,8 @@ namespace Assets.Scripts.Components.Creature
         public bool IsGrounded;
         protected bool _isJumping;
 
+        private bool _jumpTakeDamage = true;
+
         protected static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         protected static readonly int IsRunning = Animator.StringToHash("is-running");
         protected static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
@@ -45,6 +47,7 @@ namespace Assets.Scripts.Components.Creature
         {
             Direction = direction;
         }
+
 
         private void FixedUpdate()
         {
@@ -119,10 +122,15 @@ namespace Assets.Scripts.Components.Creature
 
         public virtual void TakeDamage()
         {
-            Sounds.Play("Hit");
-            _isJumping = false;
+            if (_jumpTakeDamage)
+            {
+                _isJumping = false;
+                Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, _damageVelocity);
+            }
+
             Animator.SetTrigger(Hit);
-            Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, _damageVelocity);
+            Sounds.Play("Hit");
+           
         }
         public virtual void Attack()
         {
@@ -132,6 +140,12 @@ namespace Assets.Scripts.Components.Creature
         {
             _attackRange.Check();
             Sounds.Play("Attack");
+        }
+
+        public void DisableComponent()
+        {
+            _jumpTakeDamage = false;
+            enabled = false;
         }
     }
 }

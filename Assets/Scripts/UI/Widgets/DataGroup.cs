@@ -18,21 +18,18 @@ namespace Assets.Scripts.UI.Widgets
 
         public virtual void SetData(IList<TDataType> data)
         {
-            //create requier items
             for (var i = CreatedItem.Count; i < data.Count; i++)
             {
                 var item = Object.Instantiate(_prefab, _container);
                 CreatedItem.Add(item);
             }
 
-            // update data and activate
             for (var i = 0; i < data.Count; i++)
             {
                 CreatedItem[i].SetData(data[i], i);
                 CreatedItem[i].gameObject.SetActive(true);
             }
 
-            // hide unused item
             for (var i = data.Count; i < CreatedItem.Count; i++)
             {
                 CreatedItem[i].gameObject.SetActive(false);
