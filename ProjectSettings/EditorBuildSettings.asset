@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LevelLoader.unity
-    guid: 0cf0c0785fe4f674da1753824133a459
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: f365d8d69b1aa5148ac475b5129539ec
+  - enabled: 1
+    path: Assets/Scenes/Hud.unity
+    guid: a1d08ec043cecf241a2e97363b01632a
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
@@ -21,16 +21,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Level3.unity
     guid: 79f1f19f2393b844888c9470c05de439
   - enabled: 1
-    path: Assets/Scenes/Level4.unity
-    guid: 89c40238b680dcc4082d22ada1ce960e
-  - enabled: 1
-    path: Assets/Scenes/Hud.unity
-    guid: a1d08ec043cecf241a2e97363b01632a
-  - enabled: 1
     path: Assets/Scenes/RootGame.unity
     guid: 36ac92a47d495e04a9ad074ead384a84
   - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: 89c40238b680dcc4082d22ada1ce960e
+  - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: d338cbb7ac5f9ae4a9945af7946c1151
+  - enabled: 1
+    path: Assets/Scenes/LevelLoader.unity
+    guid: 0cf0c0785fe4f674da1753824133a459
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: fb8f7be2aba0ded40847711144338468, type: 2}

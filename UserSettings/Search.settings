@@ -8,6 +8,9 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
+	"last_search.3130C130" = "name=\"mainlevbuild_514\" t:Sprite"
+	"OpenInspectorPreview.3130C130" = "0"
+	"currentGroup.3130C130" = "asset"
 }
 providers = {
 	log = {

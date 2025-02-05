@@ -24,4 +24,4 @@ MonoBehaviour:
     _tags: 00000000
   - _id: potion
     _icon: {fileID: -919258480, guid: fb1bb4fdcb5f2f647865a2f6485f3f88, type: 3}
-    _tags: 
+    _tags: 0000000001000000

@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Utils.Editors;
+﻿using Assets.Scripts.Utils.Editor;
 using UnityEditor;
 
 namespace Assets.Scripts.Dialogs.Editor

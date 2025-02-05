@@ -97,7 +97,6 @@
     <Compile Include="Assets\Scripts\Utils\LocalizationExtensions.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Definition\Repository\ItemsRepository.cs" />
     <Compile Include="Assets\Scripts\Components\Audio\ChangeAudioComponent.cs" />
-    <Compile Include="Assets\Scripts\Utils\Editors\CustomButtonEditor.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Definition\Localization\LocalizationManager.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\ProgressBarWidget.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Data\LevelData.cs" />
@@ -135,7 +134,6 @@
     <Compile Include="Assets\Scripts\Utils\Disposables\UnityEventExtensions.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Hero\HeroInputReader.cs" />
     <Compile Include="Assets\Scripts\UI\Localization\AbstractLocalizeComponent.cs" />
-    <Compile Include="Assets\Scripts\Utils\Editors\ShowDropComponentEditor.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Data\GameSettings.cs" />
     <Compile Include="Assets\Scripts\Dialogs\DropBoxController.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory\InventoryBoxController.cs" />
@@ -144,7 +142,6 @@
     <Compile Include="Assets\Scripts\Components\ProbabilityDropComponent.cs" />
     <Compile Include="Assets\Scripts\Utils\ObjectPool\PoolItem.cs" />
     <Compile Include="Assets\Scripts\Components\ChangeMassComponent.cs" />
-    <Compile Include="Assets\Scripts\Utils\Editors\SerializedPropertyExtensions.cs" />
     <Compile Include="Assets\Scripts\Components\TimerComponent.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Definition\IHaveId.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\ProjectileWeapon\BaseProjectile.cs" />
@@ -156,7 +153,6 @@
     <Compile Include="Assets\Scripts\UI\Widgets\DataGroup.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\SceletonBoss\BossShootState.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\SceletonBoss\BossFloodState.cs" />
-    <Compile Include="Assets\Texture\Hero Knight - Pixel Art\ColorSwap\ColorSwap_HeroKnight.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Data\InventoryModel.cs" />
     <Compile Include="Assets\Scripts\Components\Model\Definition\Repository\StatsRepository.cs" />
     <Compile Include="Assets\Scripts\Components\Creature\Mobs\MobAi.cs" />
@@ -168,7 +164,6 @@
     <Compile Include="Assets\Scripts\Components\Health\ModifyHealthComponent.cs" />
     <Compile Include="Assets\Scripts\MiniGames\Roots\Main.cs" />
     <Compile Include="Assets\Scripts\Components\Health\HealthComponent.cs" />
-    <Compile Include="Assets\Scripts\Utils\Editors\InventoryIdAttributeDrawer.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\ProgressBarWidgetStats.cs" />
     <Compile Include="Assets\Scripts\GoBased\DestroyObjectComponent.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\MovePointSpike.cs" />
@@ -204,7 +199,6 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Fonts\Documentation\JazzCreateAltKeys_BubbleFont.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\Texture\Keys\Key Pack - Read Me.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
@@ -223,7 +217,6 @@
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
-    <None Include="Assets\Texture\Hero Knight - Pixel Art\ColorSwap\Sprites-ColorSwap.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -1150,12 +1143,28 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Profiling.Core">
+      <HintPath>Library\ScriptAssemblies\Unity.Profiling.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.MemoryProfiler">
+      <HintPath>Library\ScriptAssemblies\Unity.MemoryProfiler.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.MemoryProfiler.Editor.MemoryProfilerModule">
+      <HintPath>Library\ScriptAssemblies\Unity.MemoryProfiler.Editor.MemoryProfilerModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PsdPlugin">
@@ -1248,6 +1257,10 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.MemoryProfiler.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.MemoryProfiler.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
