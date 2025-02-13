@@ -9,13 +9,13 @@
 :heavy_check_mark: Перекаты с временной неуязвимостью  
 :heavy_check_mark: Блок с задержкой  
 :heavy_check_mark: Ai для мобов  
-![Если вовремя попасть в тайминг можно нанести блоком урон врагу](https://github.com/osk8bit/Skyward-Explorer/tree/master/images/animation.gif?raw=true)  
+![Если вовремя попасть в тайминг можно нанести блоком урон врагу](https://github.com/osk8bit/Skyward-Explorer/blob/master/images/animation.gif?raw=true)  
 :heavy_check_mark: Прокачка статов персонажа  
-![Прокачка статов](https://github.com/osk8bit/Skyward-Explorer/tree/master/images/Stats.gif?raw=true)
+![Прокачка статов](https://github.com/osk8bit/Skyward-Explorer/blob/master/images/Stats.gif?raw=true)
 :heavy_check_mark: Инвентарь с динамическим UI  
-![Инвентарь](https://github.com/osk8bit/Skyward-Explorer/tree/master/images/inventory.gif?raw=true) 
+![Инвентарь](https://github.com/osk8bit/Skyward-Explorer/blob/master/images/inventory.gif?raw=true) 
 :heavy_check_mark: Мини-игра по мотивам Among Us  
-![Мини-игра](https://github.com/osk8bit/Skyward-Explorer/tree/master/images/MiniGame.gif?raw=true) 
+![Мини-игра](https://github.com/osk8bit/Skyward-Explorer/blob/master/images/MiniGame.gif?raw=true) 
 
 ## :hammer: Техническая реализация
 
@@ -90,7 +90,7 @@
 [Сердца, зелья, двери](https://assetstore.unity.com/packages/2d/environments/classic-legacy-pack-village-233288)
 
 Некоторые из этих ассетов были немного перерисованы и\или перекрашены под мои нужды в Aseprite.  
-![Пример изменения спрайта](https://github.com/osk8bit/Skyward-Explorer/tree/master/images/HeroKnight.png?raw=true)
+![Пример изменения спрайта](https://github.com/osk8bit/Skyward-Explorer/blob/master/images/HeroKnight.png?raw=true)
 
 ## :ghost: AI и логика врагов
 
@@ -98,7 +98,7 @@
 :heavy_check_mark: Следование за игроком  
 :heavy_check_mark: Разные уровни агрессии  
 
-![механики босса](https://github.com/osk8bit/Skyward-Explorer/tree/master/images/bossSceleton.gif?raw=true)
+![механики босса](https://github.com/osk8bit/Skyward-Explorer/blob/master/images/bossSceleton.gif?raw=true)
 
 ## :bar_chart: Оптимизация и производительность
 
@@ -108,7 +108,7 @@
 - Profiler и Memory Analyzer для поиска утечек памяти  
 - Минимизация использования Update()
 
-![Profiler](https://github.com/osk8bit/Skyward-Explorer/tree/master/images/Profiler.png?raw=true)
+![Profiler](https://github.com/osk8bit/Skyward-Explorer/blob/master/images/Profiler.png?raw=true)
 
 ## :trophy: Чему я научилась в этом проекте
 
